@@ -169,7 +169,7 @@ class Map(Component):
         wgs84 = os.path.join(outdir, name+'_wgs84.tif')
     
         if not os.path.exists(path):
-            print 'Retrieving Chip', path
+            print('Retrieving Chip', path)
             r = requests.get(url)
             if r.status_code == 200:
                 with open(path, 'wb') as the_file:
@@ -228,7 +228,7 @@ class Map(Component):
 
 
     def merge_chips(self, files, idaho_id):
-        print 'merging', files
+        print('merging', files)
         sources = [rasterio.open(f) for f in files]
         dest, output_transform = merge(sources)
 
